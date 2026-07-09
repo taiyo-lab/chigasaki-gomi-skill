@@ -1,5 +1,5 @@
 import type { CalendarFile, GomiCategory } from "../../src/lib/types.js";
-import r8 from "./r8-district1.json";
+import r8 from "./r8-district3.json";
 
 const calendars: CalendarFile[] = [r8 as CalendarFile];
 

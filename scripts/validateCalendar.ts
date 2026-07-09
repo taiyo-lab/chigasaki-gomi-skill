@@ -1,4 +1,4 @@
-import calendar from "../data/calendars/r8-district1.json" with { type: "json" };
+import calendar from "../data/calendars/r8-district3.json" with { type: "json" };
 import type { GomiCategory } from "../src/lib/types.js";
 
 type Warning = { date: string; message: string };
@@ -16,8 +16,8 @@ function nthWeekdayOfMonth(dateIso: string): number {
 const warnings: Warning[] = [];
 const dates = Object.keys(calendar.days as Record<string, GomiCategory>).sort();
 
-let lastTueCategory: GomiCategory | null = null;
-const WED_CYCLE: GomiCategory[] = ["NON_BURNABLE", "CLOTH", "NON_BURNABLE", "SPRAY"];
+let lastMonCategory: GomiCategory | null = null;
+const WED_CYCLE: GomiCategory[] = ["CLOTH", "NON_BURNABLE", "SPRAY", "NON_BURNABLE"];
 
 for (const date of dates) {
   const category = (calendar.days as Record<string, GomiCategory>)[date];
@@ -30,28 +30,28 @@ for (const date of dates) {
     continue;
   }
 
-  if (dow === 1 || dow === 4) {
+  if (dow === 2 || dow === 5) {
     if (category !== "BURNABLE" && category !== "NONE") {
-      warnings.push({ date, message: `月/木だが${category}になっている(BURNABLE想定)` });
+      warnings.push({ date, message: `火/金だが${category}になっている(BURNABLE想定)` });
     }
     continue;
   }
 
-  if (dow === 5) {
+  if (dow === 4) {
     if (category !== "PLASTIC" && category !== "NONE") {
-      warnings.push({ date, message: `金だが${category}になっている(PLASTIC想定)` });
+      warnings.push({ date, message: `木だが${category}になっている(PLASTIC想定)` });
     }
     continue;
   }
 
-  if (dow === 2) {
+  if (dow === 1) {
     if (category !== "PAPER" && category !== "BOTTLE_CAN" && category !== "NONE") {
-      warnings.push({ date, message: `火だが${category}になっている(PAPER/BOTTLE_CAN想定)` });
+      warnings.push({ date, message: `月だが${category}になっている(PAPER/BOTTLE_CAN想定)` });
     } else if (category !== "NONE") {
-      if (lastTueCategory !== null && lastTueCategory === category) {
-        warnings.push({ date, message: `火の隔週交互パターンが崩れている(前回も${category})` });
+      if (lastMonCategory !== null && lastMonCategory === category) {
+        warnings.push({ date, message: `月の隔週交互パターンが崩れている(前回も${category})` });
       }
-      lastTueCategory = category;
+      lastMonCategory = category;
     }
     continue;
   }

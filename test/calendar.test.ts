@@ -2,8 +2,8 @@ import { describe, expect, it } from "vitest";
 import { findCategory } from "../src/lib/calendar.js";
 
 describe("findCategory", () => {
-  it("resolves a known burnable day", () => {
-    expect(findCategory("2026-04-02")).toBe("BURNABLE");
+  it("resolves a known plastic day", () => {
+    expect(findCategory("2026-04-02")).toBe("PLASTIC");
   });
 
   it("resolves a holiday with no collection", () => {
