@@ -46,23 +46,6 @@
             "明日のごみを教えて",
             "明日は何を出せばいい"
           ]
-        },
-        {
-          "name": "GetDateGomiIntent",
-          "slots": [
-            {
-              "name": "targetDate",
-              "type": "AMAZON.DATE"
-            }
-          ],
-          "samples": [
-            "{targetDate}は何のゴミの日",
-            "{targetDate}は何のごみの日",
-            "{targetDate}のゴミは何",
-            "{targetDate}のごみは何",
-            "{targetDate}に出せるゴミ",
-            "{targetDate}に出せるごみ"
-          ]
         }
       ]
     }
