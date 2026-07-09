@@ -1,0 +1,70 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "ごみの日",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "GetTodayGomiIntent",
+          "slots": [],
+          "samples": [
+            "今日は何のゴミの日",
+            "今日は何のごみの日",
+            "今日のゴミは何",
+            "今日のごみは何",
+            "今日出せるゴミ",
+            "今日出せるごみ",
+            "今日のごみを教えて",
+            "今日は何を出せばいい"
+          ]
+        },
+        {
+          "name": "GetTomorrowGomiIntent",
+          "slots": [],
+          "samples": [
+            "明日は何のゴミの日",
+            "明日は何のごみの日",
+            "明日のゴミは何",
+            "明日のごみは何",
+            "明日出せるゴミ",
+            "明日出せるごみ",
+            "明日のごみを教えて",
+            "明日は何を出せばいい"
+          ]
+        },
+        {
+          "name": "GetDateGomiIntent",
+          "slots": [
+            {
+              "name": "targetDate",
+              "type": "AMAZON.DATE"
+            }
+          ],
+          "samples": [
+            "{targetDate}は何のゴミの日",
+            "{targetDate}は何のごみの日",
+            "{targetDate}のゴミは何",
+            "{targetDate}のごみは何",
+            "{targetDate}に出せるゴミ",
+            "{targetDate}に出せるごみ"
+          ]
+        }
+      ]
+    }
+  }
+}
